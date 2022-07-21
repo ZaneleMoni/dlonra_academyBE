@@ -15,16 +15,6 @@ const mysql = require("mysql");
  })
 const app = express();
 
-app.get('/adduser1',(req, res) =>{
-    let user = {email:"zandilebele@gmail.com", name:"zandile", surname:"bele"};
-    let sql = "INSERT INTO tusers SET";
-    let query = db.query(sql,user,(err, result) => {
-        if(err) throw err;
-        console.log(result)
-        res.send("user successfully added")
-    })
-})
-
 app.listen('3000', () => {
     console.log('server started on port 4000');
 });
