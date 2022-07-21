@@ -41,16 +41,19 @@ app.get('/users', (req, res) =>{
    });
  });
 
- app.post('/users',(req, res) =>{
-    var email=req.body.email
-    var name=req.body.name;
-    var surname=req.body.surname;
+ app.post('/register',(req, res) =>{
+    const email =req.body.email
+    const name=req.body.name;
+    const surname=req.body.surname;
 
-    connection.query("INSERT INTO `tusers` (email,name,surname) VALUES (?)",email.toString(), name.toString(),surname.toString(), function(err, result){
-        if(err) throw err;
-            console.log("User Inserted");
-        });
-    res.send();
+    db.query(`INSERT INTO tusers (email,name,surname) VALUES ('${email}','${name}','${surname}')`,
+        (err, results) => {
+            if (err) throw err;
+            console.log(results);
+            res.json({results})
+
+        }
+        );
 });
 
 app.listen(PORT, () => {

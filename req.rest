@@ -1,0 +1,11 @@
+POST http://localhost:8000/register
+Content-Type: application/json
+
+{
+    "email":"kmphayi@gmail.com",
+    "name":"Kagisoooooooooo",
+    "surname":"Mphayi"
+}
+
+###
+GET http://localhost:8000/users
